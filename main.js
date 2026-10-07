@@ -1,6 +1,7 @@
 let navbar = document.querySelector("#navbar");
 let links = document.querySelectorAll(".link-navbar")
 let logoNavbar = document.querySelector("#logoNavbar")
+let article1 = document.querySelector("#article1")
 
 console.dir(logoNavbar)
 
@@ -23,4 +24,11 @@ window.addEventListener("scroll", ()=>{
         logoNavbar.src = "http://127.0.0.1:5500/media/logo-yellow.png"
     }
 })
+
+
+article1.addEventListener("click", ()=>{
+    article1.style.backgroundColor= "var(--red)"
+})
+
+
 
