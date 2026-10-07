@@ -16,7 +16,7 @@ h1, h2, h3, .h1, .h2, .h3{
 :root{
     --yellow: rgb(255, 232, 31);
     --black: rgb(0, 0, 0);
-    --white: rgb(236, 236, 236);
+    --red: rgb(244, 46, 53);
 }
 
 .bg-yellow{
@@ -27,8 +27,8 @@ h1, h2, h3, .h1, .h2, .h3{
     background-color: var(--black);
 }
 
-.bg-white{
-    background-color: var(--white);
+.bg-red{
+    background-color: var(--red);
 }
 
 .text-yellow{
@@ -39,6 +39,33 @@ h1, h2, h3, .h1, .h2, .h3{
     color: var(--black);
 }
 
-.text-white{
-    color: var(--white);
+.text-red{
+    color: var(--red);
+}
+
+
+/* navbar */
+
+.navbar{
+    height: 24vh;
+    width: 100%;
+    position: fixed;
+    transition: 0.7s;
+}
+
+.logo{
+    width: 100px;
+}
+
+.list-navbar{
+    list-style-type: none;
+    display: flex;
+}
+
+.link-navbar{
+    margin: 20px;
+}
+
+.link-navbar:hover{
+    color: var(--red) !important
 }
