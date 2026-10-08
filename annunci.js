@@ -4,34 +4,23 @@ fetch(`./annunci.json`).then((response)=>response.json()).then((data)=>{
     data.sort((a, b)=> a.price - b.price)
     
     let radioWrapper = document.querySelector("#radioWrapper")
+    let contenitore = document.querySelector("#contenitore")
 
     function radioCreate(){
         let categories = data.map((annuncio)=>annuncio.category);
         console.log(categories);
 
-        let unique = [];
-
-        categories.forEach((category)=>{
-            if(!unique.includes(category)){
-                unique.push(category)
-            }
-        })
-
-        console.log(unique);
+        let unique = Array.from(new Set(categories))
 
         unique.forEach((category)=>{
             let div = document.createElement("div")
+            div.classList.add("form-check")
             div.innerHTML = `
-                <div id="radioWrapper" class="accordion-body">
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="radioDefault" id="${category}">
-                        <label class="form-check-label" for="${category}">
-                            ${category}
-                        </label>
-                    </div>
-                </div>
-            
-            
+            <input class="form-check-input" type="radio" name="categories" id="${category}">
+            <label class="form-check-label" for="${category}">
+                ${category}
+            </label>
+                 
             `;
             radioWrapper.appendChild(div)
         })
@@ -55,7 +44,7 @@ fetch(`./annunci.json`).then((response)=>response.json()).then((data)=>{
             
             `;
 
-            let contenitore = document.querySelector("#contenitore")
+            
 
             contenitore.appendChild(div)
         })
@@ -63,24 +52,33 @@ fetch(`./annunci.json`).then((response)=>response.json()).then((data)=>{
 
     annunci(data);
 
+    let tuttibottoni = document.querySelectorAll(".form-check-input")
 
 
+    function filtro(array){
 
-    function filtro(categoria){
-        if(categoria != "all"){
-            let filtered = data.filter((annuncio)=> annuncio.category == categoria);
-            annunci(filtered);
+        let categoria = Array.from(tuttibottoni).find((button)=>button.checked).id
+        console.log(categoria);
+        
+
+        if(categoria != "All"){
+            let filtered = array.filter((annuncio)=> annuncio.category == categoria);
+            console.log(filtered);
+            
+            return filtered;
         }else{
-            annunci(data)
+            return array
         }
         
     }
 
-    let tuttibottoni = document.querySelectorAll(".form-check-input")
+   
+    
 
     tuttibottoni.forEach((bottone)=>{
         bottone.addEventListener("click", ()=>{
-            filtro(bottone.id)   
+            prezzoInput(filtro(data))
+            globalFilter();
         })
     })
 
@@ -89,8 +87,8 @@ fetch(`./annunci.json`).then((response)=>response.json()).then((data)=>{
     let prezzoValue = document.querySelector("#prezzoValue")
 
 
-    function prezzoInput(){
-        let prezzi = data.map((annuncio)=> +annuncio.price);
+    function prezzoInput(array){
+        let prezzi = array.map((annuncio)=> +annuncio.price);
         prezzi.sort((a,b)=> a - b);
         let maxPrezzo = Math.ceil(prezzi.pop());
         inputPrezzi.max = maxPrezzo;
@@ -100,31 +98,41 @@ fetch(`./annunci.json`).then((response)=>response.json()).then((data)=>{
         
     }
 
-    prezzoInput();
+    prezzoInput(filtro(data));
 
 
 
-    function filterByPrice(){
-        let filtered = data.filter((annuncio)=> +annuncio.price <= inputPrezzi.value)
-        annunci(filtered);
+    function filterByPrice(array){
+        let filtered = array.filter((annuncio)=> +annuncio.price <= inputPrezzi.value)
+        return(filtered);
         
     }
 
     inputPrezzi.addEventListener("input", ()=>{
         prezzoValue.innerHTML= inputPrezzi.value;
-        filterByPrice();
+        globalFilter();
     })
 
 
     let inputText = document.querySelector("#inputText");
 
-    function filterByText(parola){
-        let filtered = data.filter ((annuncio)=> annuncio.name.toLowerCase().includes(parola.toLowerCase()) );
-        annunci(filtered);
+    function filterByText(array){
+        let filtered = array.filter ((annuncio)=> annuncio.name.toLowerCase().includes(inputText.value.toLowerCase()) );
+        return filtered;
         
     }
 
     inputText.addEventListener("input", ()=>{
-        filterByText(inputText.value);
+        globalFilter();
     })
+
+
+    function globalFilter(){
+        let filteredByCategory = filtro(data)
+        let filteredByPrice = filterByPrice(filteredByCategory)
+        let filteredByWord = filterByText(filteredByPrice)
+
+        annunci(filteredByWord)
+    }
+
 })

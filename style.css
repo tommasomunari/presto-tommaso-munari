@@ -56,6 +56,7 @@ body{
     position: fixed;
     top: 0px;
     transition: 0.7s;
+    z-index: 2;
 }
 
 .logo{
@@ -177,27 +178,33 @@ body{
     font-size: 40px;
 }
 
-.swiper{
+.swiper-1{
     height: 600px;
+    margin-top: 150px;
 }
 
-.slide-1{
-    height: 360px;
-    width: 600px;
-    border-radius: 20px;
+.card-recensione{
+    height: 250px;
+    width: 500px;
     border: 2px solid var(--yellow);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-self: center;
+    border-radius: 20px;
 }
+
 
 .swiper-slide{
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
 }
 
-.img-slide-1{
-    height: 100px;
+
+@media screen and (max-width:600px){
+    #div4000{
+        display: none;
+    }
 }
+    
+
+
+
+
