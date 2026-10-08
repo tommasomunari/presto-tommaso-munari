@@ -4,6 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Presto</title>
+    <!-- swiper js -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"/>
     <!-- google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,9 +23,15 @@
             <img id="logoNavbar" src="./media/logo-yellow.png" alt="logo giallo" class="logo">
         </figure>
         <ul class="list-navbar">
-            <li class="link-navbar">Home</li>
-            <li class="link-navbar">Annunci</li>
-            <li class="link-navbar">Chi Siamo</li>
+            <li class="link-navbar">
+                <a href="./index.html">Home</a>
+            </li>
+            <li class="link-navbar">
+                <a href="./prenotazioni.html">Annunci</a>
+            </li>
+            <li class="link-navbar">
+                <a href="./">Chi Siamo</a>
+            </li>
         </ul>
         <div class="logo">
             
@@ -52,7 +60,7 @@
             <h3>Old Republic</h3>
             <p>Old Republic è un videogioco di tipo MMORPG per Microsoft Windows sviluppato da Bioware, pubblicato da LucasArts il 20 dicembre 2011 e facente parte dell'Universo espanso di Guerre stellari. </p>
         </article>
-           
+        
         <article class="article-sezione-1">
             <i class="fa-solid fa-jedi"></i>
             <h3>Jedi</h3>
@@ -67,13 +75,60 @@
     </section>
     
     
+    <!-- sezione 2 -->
+    <section class="sezione-2">
+        <article>
+            <img class="img-sezione-2" src="https://www.unicusano.it/blog/wp-content/uploads/2018/07/personaggi-star-wars-1280x720.jpg" alt="personaggio star wars">
+        </article>
+        
+        <article>
+            <h3>Numeri Incrementali</h3>
+            <p class="span-sezione2"><span id="primoNumero">0</span>Prodotti Venduti</p>
+            <p class="span-sezione2"><span id="secondoNumero">0</span>Consegne Effettuate Oggi</p>
+            <p class="span-sezione2"><span id="terzoNumero">0</span>Recensioni Positive</p>
+        </article>
+    </section>
+    
+    
+    <!-- sezione 3 -->
+    <section>
+        <article>
+            <!-- Slider main container -->
+            <div class="swiper">
+                <!-- Additional required wrapper -->
+                <div class="swiper-wrapper">
+                    <!-- Slides -->
+                    <div class="swiper-slide">
+                        <div class="slide-1">
+                            <figure>
+                                <img class="img-slide-1" src="https://cdn.artphotolimited.com/images/6718bf5f258c849397f6133d/1000x1000/star-wars-luke-skywalker-and-yoda-on-dagobah.jpg" alt="luke skywalker">
+                            </figure>
+                            <h3>Luke SkyWalker</h3>
+                            <p>Cresciuto come un semplice contadino sul pianeta desertico Tatooine, scopre di essere il figlio del potente cavaliere Jedi Anakin Skywalker (diventato poi Darth Vader) e della senatrice Padmé Amidala. Guidato dai maestri Obi-Wan Kenobi e Yoda, Luke impara a controllare la Forza e diventa l'ultimo grande Cavaliere Jedi della sua generazione, giocando un ruolo fondamentale nella sconfitta dell'Impero Galattico e nella redenzione di suo padre.</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">Slide 2</div>
+                    <div class="swiper-slide">Slide 3</div>
+                    ...
+                </div>
+            
+                <!-- If we need navigation buttons -->
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+                
+            </div>
+        </article>
+    </section>
+    
+    
     
     
     
     <div style="height: 4000px;"></div>
     
     
-    
+    <!-- swiper js -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
     <!-- font awesome -->
     <script src="https://kit.fontawesome.com/2543f00a42.js" crossorigin="anonymous"></script>
     <!-- bootstrap js -->

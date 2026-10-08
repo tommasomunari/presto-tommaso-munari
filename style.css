@@ -12,6 +12,10 @@ h1, h2, h3, .h1, .h2, .h3{
   font-style: normal;
 }
 
+body{
+    background-color: var(--black);
+}
+
 
 :root{
     --yellow: rgb(255, 232, 31);
@@ -56,6 +60,7 @@ h1, h2, h3, .h1, .h2, .h3{
 
 .logo{
     width: 100px;
+    transition: 0.5s;
 }
 
 .list-navbar{
@@ -63,11 +68,13 @@ h1, h2, h3, .h1, .h2, .h3{
     display: flex;
 }
 
-.link-navbar{
+.link-navbar > a{
     margin: 20px;
+    color: var(--yellow);
+    text-decoration: none;
 }
 
-.link-navbar:hover{
+.link-navbar >a:hover{
     color: var(--red) !important
 }
 
@@ -137,4 +144,60 @@ h1, h2, h3, .h1, .h2, .h3{
 
 .article-sezione-1:hover{
     transform: scale(1.1);
+}
+
+
+
+/* sezione 2 */
+
+.sezione-2{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: var(--yellow);
+}
+
+.img-sezione-2{
+    height: 300px;
+}
+
+.span-sezione2{
+    margin: 50px;
+}
+
+#primoNumero{
+    font-size: 40px;
+}
+
+#secondoNumero{
+    font-size: 40px;
+}
+
+#terzoNumero{
+    font-size: 40px;
+}
+
+.swiper{
+    height: 600px;
+}
+
+.slide-1{
+    height: 360px;
+    width: 600px;
+    border-radius: 20px;
+    border: 2px solid var(--yellow);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-self: center;
+}
+
+.swiper-slide{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img-slide-1{
+    height: 100px;
 }
